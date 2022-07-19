@@ -1,20 +1,8 @@
 {
-  "Customer": [
-    {"displayName": "Taxable", "name": "taxable", "type": "boolean"},
-    {"displayName": "Id", "name": "internalId", "type": "string"},
-    {"displayName": "lastModifiedDate", "name": "lastModifiedDate", "type": "datetime"},
-    {"displayName": "Name", "name": "entityId", "type": "string"},
-    {"displayName": "Status", "name": "entityStatus", "type": "string"},
-    {"displayName": "Email", "name": "email", "type": "string"},
-    {"displayName": "DateCreated", "name": "dateCreated", "type": "datetime"},
-    {"displayName": "Subsidiary", "name": "subsidiary", "type": "string"},
-    {"displayName": "CustomFieldList", "name": "customFieldList", "type": "string"},
-    {"displayName": "Child Of", "name": "parent", "type": "string"},
-    {"displayName": "Password", "name": "password", "type": "string"}
-  ],
   "Department": [
     {"displayName": "customFieldList", "name": "customFieldList", "type": "string"},
     {"displayName": "Include Children", "name": "includeChildren", "type": "boolean"},
-    {"displayName": "Is Inactive", "name": "isInactive", "type": "boolean"}
+    {"displayName": "Name", "name": "name", "type": "string"},
+    {"displayName": "customFieldList", "name": "customFieldList", "type": "string"},
   ]
 }
