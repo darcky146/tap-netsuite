@@ -18,7 +18,7 @@ from netsuitesdk.api.price_level import PriceLevel
 import time
 import json
 import singer
-from .transaction_entities import Customers, PurchaseOrder, Invoice, Opportunity, JournalEntries, InventoryTransfer, InventoryAdjustment, InventoryItem, VendorBills, VendorPayments, SalesOrders, CreditMemos, Items
+from .transaction_entities import Customers, PurchaseOrder, Invoice, Opportunity, AccountingPeriod, JournalEntries, InventoryTransfer, InventoryAdjustment, InventoryItem, VendorBills, VendorPayments, SalesOrders, CreditMemos, Items
 from .netsuite_client import ExtendedNetSuiteClient
 
 LOGGER = singer.get_logger()
@@ -73,7 +73,8 @@ class ExtendedNetSuiteConnection:
             'Items': Items(ns_client),
             'PurchaseOrder': PurchaseOrder(ns_client),
             'Opportunity': Opportunity(ns_client),
-            'Employees': self.employees
+            'Employees': self.employees,
+            'AccountingPeriod': AccountingPeriod(ns_client)
         }
 
     def _query_entity(self, data, entity, stream):
