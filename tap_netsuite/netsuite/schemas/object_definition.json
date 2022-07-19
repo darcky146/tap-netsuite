@@ -1,8 +1,18 @@
-{
+{  
+  "Accounts": [
+    {"displayName": "Active", "name": "isInactive", "type": "boolean"},
+    {"displayName": "ParentAccount", "name": "parent", "type": "string"},
+    {"displayName": "AcctNum", "name": "acctNumber", "type": "string"},
+    {"displayName": "AccountType", "name": "acctType", "type": "string"},
+    {"displayName": "Name", "name": "acctName", "type": "string"},
+    {"displayName": "Description", "name": "description", "type": "string"},
+    {"displayName": "CurrencyRef", "name": "currency", "type": "string"},
+    {"displayName": "Id", "name": "internalId", "type": "string"}
+  ],
   "Department": [
     {"displayName": "customFieldList", "name": "customFieldList", "type": "string"},
     {"displayName": "Include Children", "name": "includeChildren", "type": "boolean"},
     {"displayName": "Name", "name": "name", "type": "string"},
-    {"displayName": "customFieldList", "name": "customFieldList", "type": "string"},
+    {"displayName": "customFieldList", "name": "customFieldList", "type": "string"}
   ]
 }
