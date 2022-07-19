@@ -8,6 +8,8 @@
     {"displayName": "Email", "name": "email", "type": "string"},
     {"displayName": "DateCreated", "name": "dateCreated", "type": "datetime"},
     {"displayName": "Subsidiary", "name": "subsidiary", "type": "string"},
-    {"displayName": "CustomFieldList", "name": "customFieldList", "type": "string"}
+    {"displayName": "CustomFieldList", "name": "customFieldList", "type": "string"},
+    {"displayName": "Child Of", "name": "parent", "type": "string"},
+    {"displayName": "Password", "name": "password", "type": "string"}
   ]
 }
