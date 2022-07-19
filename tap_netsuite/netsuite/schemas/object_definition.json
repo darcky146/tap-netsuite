@@ -11,5 +11,9 @@
     {"displayName": "CustomFieldList", "name": "customFieldList", "type": "string"},
     {"displayName": "Child Of", "name": "parent", "type": "string"},
     {"displayName": "Password", "name": "password", "type": "string"}
-  ]
+  ],
+  "Campaign": [
+  {"displayName": "Audience", "name": "audience", "type": "string"},
+  {"displayName": "Id", "name": "campaignId", "type": "string"}
+]
 }
