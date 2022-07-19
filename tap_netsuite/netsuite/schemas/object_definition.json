@@ -1,33 +1,12 @@
 {
   "Accounts": [
-		{"displayName": "Id", "name": "internalId", "type": "string"},
-		{"displayName": "acctName", "name": "acctName", "type": "string"},
-		{"displayName": "acctNumber", "name": "acctNumber", "type": "string"},
-		{"displayName": "acctType", "name": "acctType", "type": "string"},
-		{"displayName": "billableExpensesAcct", "name": "billableExpensesAcct", "type": "string"},
-		{"displayName": "cashFlowRate", "name": "cashFlowRate", "type": "string"},
-		{"displayName": "category1099misc", "name": "category1099misc", "type": "string"},
-		{"displayName": "class", "name": "class", "type": "string"},
-		{"displayName": "curDocNum", "name": "curDocNum", "type": "number"},
-		{"displayName": "currency", "name": "currency", "type": "string"},
-		{"displayName": "customFieldList", "name": "customFieldList", "type": "string"},
-		{"displayName": "deferralAcct", "name": "deferralAcct", "type": "string"},
-		{"displayName": "department", "name": "department", "type": "string"},
-		{"displayName": "description", "name": "description", "type": "string"},
-		{"displayName": "eliminate", "name": "eliminate", "type": "boolean"},
-		{"displayName": "exchangeRate", "name": "exchangeRate", "type": "string"},
-		{"displayName": "generalRate", "name": "generalRate", "type": "string"},
-		{"displayName": "includeChildren", "name": "includeChildren", "type": "boolean"},
-		{"displayName": "inventory", "name": "inventory", "type": "boolean"},
-		{"displayName": "isInactive", "name": "isInactive", "type": "boolean"},
-		{"displayName": "location", "name": "location", "type": "string"},
-		{"displayName": "openingBalance", "name": "openingBalance", "type": "number"},
-		{"displayName": "parent", "name": "parent", "type": "string"},
-		{"displayName": "revalue", "name": "revalue", "type": "boolean"},
-		{"displayName": "subsidiaryList", "name": "subsidiaryList", "type": "string"},
-		{"displayName": "tranDate", "name": "tranDate", "type": "datetime"},
-		{"displayName": "translationsList", "name": "translationsList", "type": "string"},
-		{"displayName": "unit", "name": "unit", "type": "string"},
-		{"displayName": "unitsType", "name": "unitsType", "type": "string"}
-	]
+    {"displayName": "Active", "name": "isInactive", "type": "boolean"},
+    {"displayName": "ParentAccount", "name": "parent", "type": "string"},
+    {"displayName": "AcctNum", "name": "acctNumber", "type": "string"},
+    {"displayName": "AccountType", "name": "acctType", "type": "string"},
+    {"displayName": "Name", "name": "acctName", "type": "string"},
+    {"displayName": "Description", "name": "description", "type": "string"},
+    {"displayName": "CurrencyRef", "name": "currency", "type": "string"},
+    {"displayName": "Id", "name": "internalId", "type": "string"}
+  ]
 }
