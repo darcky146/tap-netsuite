@@ -37,17 +37,24 @@ def prepare_custom_fields(that, eod):
 class AccountingPeriod(ApiBase):
     def __init__(self, ns_client):
         ApiBase.__init__(self, ns_client=ns_client, type_name='AccountingPeriod')
+        self.require_paging = True
         self.require_lastModified_date = True
 
     def get_all(self, last_modified_date=None):
         return self.get_all_generator(last_modified_date=last_modified_date)
 
     def get_all_generator(self, page_size=200, last_modified_date=None):
-        search_record = self.ns_client.basic_search_factory(type_name="AccountingPeriod",
-                                                            lastModifiedDate=last_modified_date)
-        ps = PaginatedSearch(client=self.ns_client, type_name='AccountingPeriod', pageSize=page_size,
-                             search_record=search_record)
-        return self._paginated_search_to_generator(ps)
+        record_type_search_field = self.ns_client.SearchStringField(searchValue='AccountingPeriod', operator='contains')
+        basic_search = self.ns_client.basic_search_factory('Transaction',
+                                                           lastModifiedDate=last_modified_date,
+                                                           recordType=record_type_search_field)
+
+        paginated_search = PaginatedSearch(client=self.ns_client,
+                                           basic_search=basic_search,
+                                           type_name='Transaction',
+                                           pageSize=page_size)
+
+        return self._paginated_search_to_generator(paginated_search=paginated_search)
 
     def post(self, data) -> OrderedDict:
         return None
