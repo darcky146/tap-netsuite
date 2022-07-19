@@ -1,5 +1,5 @@
 {
-  "Account": [
+  "Accounts": [
 		{"displayName": "Id", "name": "internalId", "type": "string"},
 		{"displayName": "acctName", "name": "acctName", "type": "string"},
 		{"displayName": "acctNumber", "name": "acctNumber", "type": "string"},
