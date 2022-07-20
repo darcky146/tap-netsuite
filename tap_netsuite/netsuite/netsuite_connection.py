@@ -18,7 +18,7 @@ from netsuitesdk.api.price_level import PriceLevel
 import time
 import json
 import singer
-from .transaction_entities import Address, CustomFieldType, SubtotalItem, Topic, CostCategory, ItemDemandPlan, LotNumberedInventoryItem, CampaignChannel, State, JournalEntry, TaxAcct, CouponCode, VendorCategory, TaxType, NonInventorySaleItem, SupportCaseStatus, LeadSource, CurrencyRate, WinLossReason, SupportCaseOrigin, SalesOrder, Deposit, TaxGroup, TransactionColumnCustomField, Opportunity, ItemNumberCustomField, StatisticalJournalEntry, InventoryDetail, CampaignSearchEngine, GlobalAccountMapping, FairValuePrice, SupportCaseType, Solution, RevRecTemplate, TimeBill, Charge, InterCompanyTransferOrder, ItemRevision, Contact, CampaignResponse, PromotionCode, WorkOrderClose, PurchaseRequisition, JobType, Term, Customer, Invoice, Issue, ManufacturingRouting, ServiceSaleItem, InventoryAdjustment, InventoryItem, InventoryCostRevaluation, UnitsType, EntityGroup, DepositApplication, SalesTaxItem, VendorPayment, CustomTransaction, LandedCost, Task, TimeSheet, GiftCertificate, KitItem, DescriptionItem, ItemFulfillment, ContactCategory, CustomerMessage, OtherChargeResaleItem, NoteType, VendorReturnAuthorization, PurchaseOrder, Job, CampaignSubscription, CampaignFamily, CrmCustomField, BinWorksheet, SerializedInventoryItem, DiscountItem, CustomerRefund, TransferOrder, PartnerCategory, OtherChargePurchaseItem, BinTransfer, VendorBill, PaymentMethod, ItemAccountMapping, CustomerStatus, InventoryTransfer, Estimate, SalesRole, ManufacturingCostTemplate, AssemblyUnbuild, ItemSupplyPlan, NonInventoryResaleItem, BillingSchedule, PaymentItem, ItemGroup, WorkOrder, WorkOrderIssue, SupportCaseIssue, ContactRole, CustomerPayment, PricingGroup, SupportCasePriority, Campaign, LotNumberedAssemblyItem, InventoryNumber, VendorCredit, CustomRecordCustomField, CustomerDeposit, SupportCase, ServicePurchaseItem, CampaignOffer, CreditMemo, CampaignAudience, AccountingPeriod, ServiceResaleItem, CustomerCategory, RevRecSchedule, CashSale, CalendarEvent, CampaignVertical, OtherCustomField, EntityCustomField, PayrollItem, SerializedAssemblyItem, OtherNameCategory, ReturnAuthorization, Nexus, TransactionBodyCustomField, WorkOrderCompletion, BudgetCategory, SiteCategory, DownloadItem, CustomRecordType, ItemOptionCustomField, CashRefund, ResourceAllocation, ItemReceipt, ManufacturingOperationTask, PhoneCall, BillingAccount, NonInventoryPurchaseItem, MarkupItem, ProjectTask, PaycheckJournal, Partner, AssemblyItem, GiftCertificateItem, JobStatus, InterCompanyJournalEntry, Budget, OtherChargeSaleItem, Note, AssemblyBuild, Bin, CampaignCategory, TimeEntry, Check, ItemCustomField, Message
+from .transaction_entities import Address, Items, CustomFieldType, SubtotalItem, Topic, CostCategory, ItemDemandPlan, LotNumberedInventoryItem, CampaignChannel, State, JournalEntry, TaxAcct, CouponCode, VendorCategory, TaxType, NonInventorySaleItem, SupportCaseStatus, LeadSource, CurrencyRate, WinLossReason, SupportCaseOrigin, SalesOrder, Deposit, TaxGroup, TransactionColumnCustomField, Opportunity, ItemNumberCustomField, StatisticalJournalEntry, InventoryDetail, CampaignSearchEngine, GlobalAccountMapping, FairValuePrice, SupportCaseType, Solution, RevRecTemplate, TimeBill, Charge, InterCompanyTransferOrder, ItemRevision, Contact, CampaignResponse, PromotionCode, WorkOrderClose, PurchaseRequisition, JobType, Term, Customers, Invoice, Issue, ManufacturingRouting, ServiceSaleItem, InventoryAdjustment, InventoryItem, InventoryCostRevaluation, UnitsType, EntityGroup, DepositApplication, SalesTaxItem, VendorPayments, CustomTransaction, LandedCost, Task, TimeSheet, GiftCertificate, KitItem, DescriptionItem, ItemFulfillment, ContactCategory, CustomerMessage, OtherChargeResaleItem, NoteType, VendorReturnAuthorization, PurchaseOrder, Job, CampaignSubscription, CampaignFamily, CrmCustomField, BinWorksheet, SerializedInventoryItem, DiscountItem, CustomerRefund, TransferOrder, PartnerCategory, OtherChargePurchaseItem, BinTransfer, VendorBills, PaymentMethod, ItemAccountMapping, CustomerStatus, InventoryTransfer, Estimate, SalesRole, ManufacturingCostTemplate, AssemblyUnbuild, ItemSupplyPlan, NonInventoryResaleItem, BillingSchedule, PaymentItem, ItemGroup, WorkOrder, WorkOrderIssue, SupportCaseIssue, ContactRole, CustomerPayment, PricingGroup, SupportCasePriority, Campaign, LotNumberedAssemblyItem, InventoryNumber, VendorCredit, CustomRecordCustomField, CustomerDeposit, SupportCase, ServicePurchaseItem, CampaignOffer, CreditMemo, CampaignAudience, AccountingPeriod, ServiceResaleItem, CustomerCategory, RevRecSchedule, CashSale, CalendarEvent, CampaignVertical, OtherCustomField, EntityCustomField, PayrollItem, SerializedAssemblyItem, OtherNameCategory, ReturnAuthorization, Nexus, TransactionBodyCustomField, WorkOrderCompletion, BudgetCategory, SiteCategory, DownloadItem, CustomRecordType, ItemOptionCustomField, CashRefund, ResourceAllocation, ItemReceipt, ManufacturingOperationTask, PhoneCall, BillingAccount, NonInventoryPurchaseItem, MarkupItem, ProjectTask, PaycheckJournal, Partner, AssemblyItem, GiftCertificateItem, JobStatus, InterCompanyJournalEntry, Budget, OtherChargeSaleItem, Note, AssemblyBuild, Bin, CampaignCategory, TimeEntry, Check, ItemCustomField, Message
 from .netsuite_client import ExtendedNetSuiteClient
 
 LOGGER = singer.get_logger()
@@ -72,8 +72,8 @@ class ExtendedNetSuiteConnection:
             'AccountingPeriod': AccountingPeriod(ns_client),
             'Customer': Customers(ns_client),
             'Accounts': Accounts(ns_client),
-            'JournalEntry': JournalEntries(ns_client),
-            'Commission': JournalEntries(ns_client),
+            'JournalEntry': JournalEntry(ns_client),
+            'Commission': JournalEntry(ns_client),
             'Classifications': Classifications(ns_client),
             'Vendors': self.vendors,
             'VendorBills': self.vendor_bills,
@@ -82,8 +82,8 @@ class ExtendedNetSuiteConnection:
             'InventoryTransfer': InventoryTransfer(ns_client),
             'PriceLevel': PriceLevel(ns_client),
             'InventoryItem': InventoryItem(ns_client),
-            'SalesOrders': SalesOrders(ns_client),
-            'CreditMemos': CreditMemos(ns_client),
+            'SalesOrders': SalesOrder(ns_client),
+            'CreditMemos': CreditMemo(ns_client),
             'Items': Items(ns_client),
             'PurchaseOrder': PurchaseOrder(ns_client),
             'Opportunity': Opportunity(ns_client),
@@ -110,7 +110,6 @@ class ExtendedNetSuiteConnection:
             'Deposit': Deposit(ns_client),
             'TaxGroup': TaxGroup(ns_client),
             'TransactionColumnCustomField': TransactionColumnCustomField(ns_client),
-            'Opportunity': Opportunity(ns_client),
             'ItemNumberCustomField': ItemNumberCustomField(ns_client),
             'StatisticalJournalEntry': StatisticalJournalEntry(ns_client),
             'InventoryDetail': InventoryDetail(ns_client),
@@ -164,7 +163,7 @@ class ExtendedNetSuiteConnection:
             'PartnerCategory': PartnerCategory(ns_client),
             'OtherChargePurchaseItem': OtherChargePurchaseItem(ns_client),
             'BinTransfer': BinTransfer(ns_client),
-            'VendorBill': VendorBill(ns_client),
+            'VendorBill': VendorBills(ns_client),
             'PaymentMethod': PaymentMethod(ns_client),
             'ItemAccountMapping': ItemAccountMapping(ns_client),
             'CustomerStatus': CustomerStatus(ns_client),
@@ -194,7 +193,6 @@ class ExtendedNetSuiteConnection:
             'ServicePurchaseItem': ServicePurchaseItem(ns_client),
             'CampaignOffer': CampaignOffer(ns_client),
             'CampaignAudience': CampaignAudience(ns_client),
-            'AccountingPeriod': AccountingPeriod(ns_client),
             'ServiceResaleItem': ServiceResaleItem(ns_client),
             'CustomerCategory': CustomerCategory(ns_client),
             'RevRecSchedule': RevRecSchedule(ns_client),
