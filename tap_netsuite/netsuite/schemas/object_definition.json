@@ -1,20 +1,13 @@
 {
-"Address": [
-		{"displayName": "Id", "name": "internalId", "type": "string"},
-		{"displayName": "addr1", "name": "addr1", "type": "string"},
-		{"displayName": "addr2", "name": "addr2", "type": "string"},
-		{"displayName": "addr3", "name": "addr3", "type": "string"},
-		{"displayName": "addressee", "name": "addressee", "type": "string"},
-		{"displayName": "addressee", "name": "addressee", "type": "string"},
-		{"displayName": "addrPhone", "name": "addrPhone", "type": "string"},
-		{"displayName": "addrText", "name": "addrText", "type": "string"},
-		{"displayName": "attention", "name": "attention", "type": "string"},
-		{"displayName": "city", "name": "city", "type": "string"},
-		{"displayName": "country", "name": "country", "type": "string"},
-		{"displayName": "customFieldList", "name": "customFieldList", "type": "string"},
-		{"displayName": "internalId", "name": "internalId", "type": "string"},
-		{"displayName": "override", "name": "override", "type": "boolean"},
-		{"displayName": "state", "name": "state", "type": "string"},
-		{"displayName": "zip", "name": "zip", "type": "string"}
-	]
+"Customer": [
+    {"displayName": "Taxable", "name": "taxable", "type": "boolean"},
+    {"displayName": "Id", "name": "internalId", "type": "string"},
+    {"displayName": "lastModifiedDate", "name": "lastModifiedDate", "type": "datetime"},
+    {"displayName": "Name", "name": "entityId", "type": "string"},
+    {"displayName": "Status", "name": "entityStatus", "type": "string"},
+    {"displayName": "Email", "name": "email", "type": "string"},
+    {"displayName": "DateCreated", "name": "dateCreated", "type": "datetime"},
+    {"displayName": "Subsidiary", "name": "subsidiary", "type": "string"},
+    {"displayName": "CustomFieldList", "name": "customFieldList", "type": "string"}
+  ]
 }
