@@ -67,7 +67,7 @@ class ExtendedNetSuiteConnection:
             'CustomLists': self.custom_lists,
             'CustomRecords': self.custom_records,
             'Projects': self.projects,
-            'Invoice': self.invoice
+            'Invoice': self.invoice,
             
             'AccountingPeriod': AccountingPeriod(ns_client),
             'Customer': Customers(ns_client),
