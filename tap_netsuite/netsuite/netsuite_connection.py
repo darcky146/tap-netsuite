@@ -18,7 +18,7 @@ from netsuitesdk.api.price_level import PriceLevel
 import time
 import json
 import singer
-from .transaction_entities import Address, Items, CustomFieldType, SubtotalItem, Topic, CostCategory, ItemDemandPlan, LotNumberedInventoryItem, CampaignChannel, State, JournalEntry, TaxAcct, CouponCode, VendorCategory, TaxType, NonInventorySaleItem, SupportCaseStatus, LeadSource, CurrencyRate, WinLossReason, SupportCaseOrigin, SalesOrder, Deposit, TaxGroup, TransactionColumnCustomField, Opportunity, ItemNumberCustomField, StatisticalJournalEntry, InventoryDetail, CampaignSearchEngine, GlobalAccountMapping, FairValuePrice, SupportCaseType, Solution, RevRecTemplate, TimeBill, Charge, InterCompanyTransferOrder, ItemRevision, Contact, CampaignResponse, PromotionCode, WorkOrderClose, PurchaseRequisition, JobType, Term, Customers, Invoice, Issue, ManufacturingRouting, ServiceSaleItem, InventoryAdjustment, InventoryItem, InventoryCostRevaluation, UnitsType, EntityGroup, DepositApplication, SalesTaxItem, VendorPayments, CustomTransaction, LandedCost, Task, TimeSheet, GiftCertificate, KitItem, DescriptionItem, ItemFulfillment, ContactCategory, CustomerMessage, OtherChargeResaleItem, NoteType, VendorReturnAuthorization, PurchaseOrder, Job, CampaignSubscription, CampaignFamily, CrmCustomField, BinWorksheet, SerializedInventoryItem, DiscountItem, CustomerRefund, TransferOrder, PartnerCategory, OtherChargePurchaseItem, BinTransfer, VendorBills, PaymentMethod, ItemAccountMapping, CustomerStatus, InventoryTransfer, Estimate, SalesRole, ManufacturingCostTemplate, AssemblyUnbuild, ItemSupplyPlan, NonInventoryResaleItem, BillingSchedule, PaymentItem, ItemGroup, WorkOrder, WorkOrderIssue, SupportCaseIssue, ContactRole, CustomerPayment, PricingGroup, SupportCasePriority, Campaign, LotNumberedAssemblyItem, InventoryNumber, VendorCredit, CustomRecordCustomField, CustomerDeposit, SupportCase, ServicePurchaseItem, CampaignOffer, CreditMemo, CampaignAudience, AccountingPeriod, ServiceResaleItem, CustomerCategory, RevRecSchedule, CashSale, CalendarEvent, CampaignVertical, OtherCustomField, EntityCustomField, PayrollItem, SerializedAssemblyItem, OtherNameCategory, ReturnAuthorization, Nexus, TransactionBodyCustomField, WorkOrderCompletion, BudgetCategory, SiteCategory, DownloadItem, CustomRecordType, ItemOptionCustomField, CashRefund, ResourceAllocation, ItemReceipt, ManufacturingOperationTask, PhoneCall, BillingAccount, NonInventoryPurchaseItem, MarkupItem, ProjectTask, PaycheckJournal, Partner, AssemblyItem, GiftCertificateItem, JobStatus, InterCompanyJournalEntry, Budget, OtherChargeSaleItem, Note, AssemblyBuild, Bin, CampaignCategory, TimeEntry, Check, ItemCustomField, Message
+from .transaction_entities import Customers, PurchaseOrder, Invoice, JournalEntries, InventoryTransfer, InventoryAdjustment, InventoryItem, VendorBills, VendorPayments, SalesOrders, CreditMemos, Items
 from .netsuite_client import ExtendedNetSuiteClient
 
 LOGGER = singer.get_logger()
@@ -55,25 +55,11 @@ class ExtendedNetSuiteConnection:
         self.invoice = Invoice(ns_client)
 
         self.entities = {
-            'Departments': self.departments,
-            'Currencies': self.currencies,
-            'Locations': self.locations,
-            'Subsidiaries': self.subsidiaries,
-            'Employees': self.employees,
-            'ExpenseReports': self.expense_reports,
-            'Folders': self.folders,
-            'Files': self.files,
-            'ExpenseCategory': self.expense_categories,
-            'CustomLists': self.custom_lists,
-            'CustomRecords': self.custom_records,
-            'Projects': self.projects,
-            'Invoice': self.invoice,
-            
-            'AccountingPeriod': AccountingPeriod(ns_client),
             'Customer': Customers(ns_client),
+            'Invoice': Invoice(ns_client),
             'Accounts': Accounts(ns_client),
-            'JournalEntry': JournalEntry(ns_client),
-            'Commission': JournalEntry(ns_client),
+            'JournalEntry': JournalEntries(ns_client),
+            'Commission': JournalEntries(ns_client),
             'Classifications': Classifications(ns_client),
             'Vendors': self.vendors,
             'VendorBills': self.vendor_bills,
@@ -82,26 +68,11 @@ class ExtendedNetSuiteConnection:
             'InventoryTransfer': InventoryTransfer(ns_client),
             'PriceLevel': PriceLevel(ns_client),
             'InventoryItem': InventoryItem(ns_client),
-            'SalesOrders': SalesOrder(ns_client),
-            'CreditMemos': CreditMemo(ns_client),
+            'SalesOrders': SalesOrders(ns_client),
+            'CreditMemos': CreditMemos(ns_client),
             'Items': Items(ns_client),
-            'PurchaseOrder': PurchaseOrder(ns_client),
-            'Opportunity': Opportunity(ns_client),
-            
-            'Address': Address(ns_client),
-            'CustomFieldType': CustomFieldType(ns_client),
-            'SubtotalItem': SubtotalItem(ns_client),
-            'Topic': Topic(ns_client),
-            'CostCategory': CostCategory(ns_client),
-            'ItemDemandPlan': ItemDemandPlan(ns_client),
-            'LotNumberedInventoryItem': LotNumberedInventoryItem(ns_client),
-            'CampaignChannel': CampaignChannel(ns_client),
-            'State': State(ns_client),
-            'TaxAcct': TaxAcct(ns_client),
-            'CouponCode': CouponCode(ns_client),
-            'VendorCategory': VendorCategory(ns_client),
-            'TaxType': TaxType(ns_client),
-            'NonInventorySaleItem': NonInventorySaleItem(ns_client),
+            'PurchaseOrder': PurchaseOrder(ns_client)
+        }            'NonInventorySaleItem': NonInventorySaleItem(ns_client),
             'SupportCaseStatus': SupportCaseStatus(ns_client),
             'LeadSource': LeadSource(ns_client),
             'CurrencyRate': CurrencyRate(ns_client),
