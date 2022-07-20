@@ -71,7 +71,7 @@ class ExtendedNetSuiteConnection:
             'SalesOrders': SalesOrders(ns_client),
             'CreditMemos': CreditMemos(ns_client),
             'Items': Items(ns_client),
-            'PurchaseOrder': PurchaseOrder(ns_client)
+            'PurchaseOrder': PurchaseOrder(ns_client),
             
             'Address': Address(ns_client),
             'CustomFieldType': CustomFieldType(ns_client),
